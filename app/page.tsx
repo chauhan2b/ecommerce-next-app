@@ -1,6 +1,7 @@
 import { fetchProducts } from "@/app/lib/data";
 import { Star } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function Home() {
   const products = await fetchProducts();
@@ -22,13 +23,15 @@ export default async function Home() {
               className="flex flex-col items-start p-4 max-w-sm bg-white rounded-lg shadow-sm"
             >
               <div className="flex justify-center w-full">
-                <Image
-                  src={thumbnail}
-                  alt={title}
-                  height={300}
-                  width={300}
-                  className="rounded-lg"
-                />
+                <Link href={`/products/${id}`}>
+                  <Image
+                    src={thumbnail}
+                    alt={title}
+                    height={300}
+                    width={300}
+                    className="rounded-lg"
+                  />
+                </Link>
               </div>
               <div className="gap-1 flex flex-col w-full mt-4">
                 <h1 className="text-xl font-bold">{title}</h1>
