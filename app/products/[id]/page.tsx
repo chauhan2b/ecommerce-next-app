@@ -127,11 +127,8 @@ export default async function Page({
       <div className="flex flex-col gap-2 md:mx-20 xl:mx-40 px-6 pb-4">
         <h1 className="text-xl font-bold mt-4">Reviews</h1>
         <div className="grid md:grid-cols-2 gap-4">
-          {product.reviews.map((review) => (
-            <div
-              key={review.reviewerEmail}
-              className="bg-gray-50 p-4 rounded-lg"
-            >
+          {product.reviews.map((review, index) => (
+            <div key={index} className="bg-gray-50 p-4 rounded-lg">
               <div className="flex justify-between">
                 <p className="text-md font-medium">{review.reviewerName}</p>
                 <p className="text-gray-600">{formatDate(review.date)}</p>
