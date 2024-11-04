@@ -7,7 +7,7 @@ export default async function Home() {
   const products = await fetchProducts();
 
   return (
-    <div className="flex justify-center bg-gray-50">
+    <div className="flex justify-center">
       <div className="grid md:grid-cols-3 2xl:grid-cols-4 gap-6 p-4">
         {products.map((product) => {
           const { id, title, thumbnail, price, discountPercentage, rating } =
@@ -20,7 +20,7 @@ export default async function Home() {
           return (
             <div
               key={id}
-              className="flex flex-col items-start p-4 max-w-sm bg-white rounded-lg shadow-sm"
+              className="flex flex-col items-start p-4 max-w-sm bg-gray-50 hover:bg-gray-100 rounded-lg shadow-sm hover:shadow-md"
             >
               <div className="flex justify-center w-full">
                 <Link href={`/products/${id}`}>
