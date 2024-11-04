@@ -6,7 +6,9 @@ export default function Header() {
   return (
     <div className="shadow-md p-4">
       <div className="flex justify-between items-center">
-        <h1 className="text-xl font-bold">E-commerce</h1>
+        <Link href="/" passHref>
+          <h1 className="text-xl font-bold">E-commerce</h1>
+        </Link>
         <div className="flex flex-col gap-2">
           <Link href="/cart" passHref>
             <Button variant="ghost">
