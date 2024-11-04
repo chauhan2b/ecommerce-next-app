@@ -1,3 +1,4 @@
+import ReviewCard from "@/app/components/review-card";
 import { fetchProductDetails } from "@/app/lib/data";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -20,15 +21,6 @@ export default async function Page({
     product.price -
     (product.price * product.discountPercentage) / 100
   ).toFixed(2);
-
-  const formatDate = (dateString: string) => {
-    const options: Intl.DateTimeFormatOptions = {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    };
-    return new Date(dateString).toLocaleDateString(undefined, options);
-  };
 
   return (
     <div>
@@ -128,27 +120,7 @@ export default async function Page({
         <h1 className="text-xl font-bold mt-4">Reviews</h1>
         <div className="grid md:grid-cols-2 gap-4">
           {product.reviews.map((review, index) => (
-            <div key={index} className="bg-gray-50 p-4 rounded-lg">
-              <div className="flex justify-between items-center">
-                <div>
-                  <div className="flex gap-2">
-                    <p className="text-md font-medium">{review.reviewerName}</p>
-                    <div className="flex gap-2">
-                      <Star
-                        className="w-5 h-5 text-yellow-300"
-                        fill="currentColor"
-                      />
-                      <p>{review.rating}</p>
-                    </div>
-                  </div>
-                  <p className="text-gray-500 text-sm">
-                    {review.reviewerEmail}
-                  </p>
-                </div>
-                <p className="text-gray-600">{formatDate(review.date)}</p>
-              </div>
-              <p className="text-gray-700 mt-2">{review.comment}</p>
-            </div>
+            <ReviewCard key={index} review={review} />
           ))}
         </div>
       </div>
