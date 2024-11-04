@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <div className="shadow-md p-4">
+    <div className="shadow-sm p-4 sticky top-0 bg-white z-50">
       <div className="flex justify-between items-center">
         <Link href="/" passHref>
           <h1 className="text-xl font-bold">E-commerce</h1>
