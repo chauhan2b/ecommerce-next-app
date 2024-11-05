@@ -24,7 +24,7 @@ export default async function Page({
 
   return (
     <div>
-      <div className="grid md:grid-cols-2 justify-center xl:px-40 md:max-h-min">
+      <div className="grid md:grid-cols-2 justify-center items-center xl:px-40 md:max-h-min my-4">
         <div className="flex justify-center">
           <Image
             src={product.images[0]}
@@ -36,9 +36,7 @@ export default async function Page({
           />
         </div>
         <div className="p-2 md: pl-6 gap-4 flex flex-col lg:min-w-[500px] lg:max-w-[650px]">
-          <h1 className="text-3xl font-bold md:mt-20 xl:mt-32">
-            {product.title}
-          </h1>
+          <h1 className="text-3xl font-bold">{product.title}</h1>
           <div className="flex gap-2 items-center ">
             <Star className="w-5 h-5 text-yellow-300" fill="currentColor" />
             {product.rating}
