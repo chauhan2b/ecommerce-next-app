@@ -25,13 +25,14 @@ export default async function Page({
   return (
     <div>
       <div className="grid md:grid-cols-2 justify-center xl:px-40 md:max-h-min">
-        <div>
+        <div className="flex justify-center">
           <Image
             src={product.images[0]}
             width={500}
             height={500}
+            objectFit="cover"
             alt={product.title}
-            className="w-full rounded-lg lg:max-w-[700px]"
+            className="rounded-lg lg:max-h-[700px] w-auto"
           />
         </div>
         <div className="p-2 md: pl-6 gap-4 flex flex-col lg:min-w-[500px] lg:max-w-[650px]">
