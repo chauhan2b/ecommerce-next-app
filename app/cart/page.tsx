@@ -42,6 +42,7 @@ export default function Page() {
                   alt={item.name}
                   width={120}
                   height={120}
+                  className="bg-white m-2 rounded-lg shadow-sm"
                 />
                 <div>
                   <h2 className="font-bold line-clamp-2">{item.name}</h2>
