@@ -118,7 +118,7 @@ export default async function Page({
       </div>
       <div className="flex flex-col gap-2 md:mx-20 xl:mx-40 px-6 pb-4">
         <h1 className="text-xl font-bold mt-4">Reviews</h1>
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid lg:grid-cols-2 gap-4">
           {product.reviews.map((review, index) => (
             <ReviewCard key={index} review={review} />
           ))}

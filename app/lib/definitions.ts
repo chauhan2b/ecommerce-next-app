@@ -52,3 +52,11 @@ export type Meta = {
   barcode: string;
   qrCode: string;
 };
+
+export type CartItem = {
+  id: number;
+  name: string;
+  price: number;
+  quantity: number;
+  thumbnail: string;
+};

@@ -2,15 +2,9 @@ import { Star } from "lucide-react";
 import { Review } from "../lib/definitions";
 import { formatDate } from "@/lib/utils";
 
-export default function ReviewCard({
-  key,
-  review,
-}: {
-  key: number;
-  review: Review;
-}) {
+export default function ReviewCard({ review }: { review: Review }) {
   return (
-    <div key={key} className="bg-gray-50 p-4 rounded-lg">
+    <div className="bg-gray-50 p-4 rounded-lg">
       <div className="flex justify-between items-center">
         <div>
           <div className="flex gap-2">
