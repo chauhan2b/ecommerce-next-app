@@ -44,7 +44,7 @@ export default function Page() {
                   height={120}
                 />
                 <div>
-                  <h2 className="font-bold">{item.name}</h2>
+                  <h2 className="font-bold line-clamp-2">{item.name}</h2>
                   <p className="text-muted-foreground">
                     ${item.price} per item
                   </p>
