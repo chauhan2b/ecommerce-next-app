@@ -3,6 +3,7 @@ import "./globals.css";
 import Footer from "@/app/components/footer";
 import Header from "@/app/components/header";
 import { inter } from "@/app/ui/fonts";
+import StoreProvider from "./store-provider";
 
 export const metadata: Metadata = {
   title: "E-commerce App",
@@ -17,9 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
-        <Header />
-        {children}
-        <Footer />
+        <StoreProvider>
+          <Header />
+          {children}
+          <Footer />
+        </StoreProvider>
       </body>
     </html>
   );
