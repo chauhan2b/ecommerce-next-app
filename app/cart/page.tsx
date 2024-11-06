@@ -6,12 +6,24 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/lib/store";
-import { removeFromCart, updateQuantity } from "@/lib/features/cart/cart-slice";
+import {
+  hydrateCart,
+  removeFromCart,
+  updateQuantity,
+} from "@/lib/features/cart/cart-slice";
 import { toast } from "sonner";
+import { useEffect } from "react";
 
 export default function Page() {
   const cartItems = useSelector((state: RootState) => state.cart);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const cart = localStorage.getItem("cart");
+    if (cart) {
+      dispatch(hydrateCart(JSON.parse(cart)));
+    }
+  }, [dispatch]);
 
   const calculateSubtotal = () => {
     return cartItems
