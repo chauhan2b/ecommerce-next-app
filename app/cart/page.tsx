@@ -52,7 +52,7 @@ export default function Page() {
   };
 
   return (
-    <div className="p-4 md:mx-20 2xl:mx-40">
+    <div className="p-4 md:mx-20 xl:mx-40 2xl:mx-60">
       {/* Cart Items */}
       {cartItems.length === 0 && (
         <>
