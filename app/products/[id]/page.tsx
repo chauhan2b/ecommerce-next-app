@@ -1,3 +1,4 @@
+import AddToCart from "@/app/components/add-to-cart";
 import ReviewCard from "@/app/components/review-card";
 import { fetchProductDetails } from "@/app/lib/data";
 import { Badge } from "@/components/ui/badge";
@@ -21,6 +22,14 @@ export default async function Page({
     product.price -
     (product.price * product.discountPercentage) / 100
   ).toFixed(2);
+
+  const cartItem = {
+    id: product.id,
+    name: product.title,
+    price: parseFloat(discountedPrice),
+    quantity: 1,
+    thumbnail: product.thumbnail,
+  };
 
   return (
     <div>
@@ -57,9 +66,7 @@ export default async function Page({
             </div>
           </div>
           <div className="flex gap-2">
-            <Button className="w-full p-6 text-xl font-bold">
-              Add to cart
-            </Button>
+            <AddToCart cartItem={cartItem} />
             <Button className="p-6" variant="outline">
               <Heart className="h-6 w-6" />
             </Button>

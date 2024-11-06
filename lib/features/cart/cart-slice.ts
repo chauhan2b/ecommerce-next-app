@@ -34,6 +34,7 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { hydrateCart } = cartSlice.actions;
+export const { hydrateCart, addToCart, removeFromCart, updateQuantity } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;
