@@ -19,6 +19,25 @@ export default function Page() {
       .toFixed(2);
   };
 
+  const calculateShipping = (subtotal: number) => {
+    if (subtotal > 50) {
+      return 0;
+    } else {
+      return 10;
+    }
+  };
+
+  const calculateTotal = (subtotal: number) => {
+    if (subtotal > 50) {
+      return subtotal.toFixed(2);
+    } else {
+      return (subtotal + 10).toFixed(2);
+    }
+  };
+
+  const subtotal = parseFloat(calculateSubtotal());
+  const shipping = calculateShipping(subtotal);
+
   const handleRemoveFromCart = (id: number, quantity: number) => {
     if (quantity === 1) {
       dispatch(removeFromCart(id));
@@ -33,7 +52,7 @@ export default function Page() {
   };
 
   return (
-    <div className="h-screen p-4 md:mx-20 2xl:mx-40">
+    <div className="p-4 md:mx-20 2xl:mx-40">
       {/* Cart Items */}
       {cartItems.length === 0 && (
         <>
@@ -111,15 +130,24 @@ export default function Page() {
             <div className="bg-gray-50 px-4 py-2 rounded-xl mt-4">
               <div className="flex justify-between mt-2">
                 <p className="text-muted-foreground">Subtotal:</p>
-                <p className="text-lg">${calculateSubtotal()}</p>
+                <p className="text-lg">${subtotal}</p>
               </div>
-              <div className="flex justify-between mt-2">
-                <p className="text-muted-foreground">Shipping:</p>
-                <p className="font-bold text-green-600">Free</p>
+              <div className="flex justify-between mt-2 items-center">
+                <p className="text-muted-foreground flex flex-col">
+                  Shipping:
+                  <span className="text-xs">(free for orders above $50)</span>
+                </p>
+                {shipping == 0 ? (
+                  <p className="font-bold text-green-600">Free</p>
+                ) : (
+                  <p className="text-muted-foreground">${shipping}</p>
+                )}
               </div>
               <div className="flex justify-between mt-2">
                 <p className="font-bold text-2xl">Total:</p>
-                <p className="text-2xl font-bold">${calculateSubtotal()}</p>
+                <p className="text-2xl font-bold">
+                  ${calculateTotal(subtotal)}
+                </p>
               </div>
             </div>
 
