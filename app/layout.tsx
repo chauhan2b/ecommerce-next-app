@@ -4,6 +4,7 @@ import Footer from "@/app/components/footer";
 import Header from "@/app/components/header";
 import { inter } from "@/app/ui/fonts";
 import StoreProvider from "./store-provider";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "E-commerce App",
@@ -22,6 +23,7 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
+          <Toaster />
         </StoreProvider>
       </body>
     </html>

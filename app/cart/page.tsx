@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/lib/store";
 import { removeFromCart, updateQuantity } from "@/lib/features/cart/cart-slice";
+import { toast } from "sonner";
 
 export default function Page() {
   const cartItems = useSelector((state: RootState) => state.cart);
@@ -21,6 +22,7 @@ export default function Page() {
   const handleRemoveFromCart = (id: number, quantity: number) => {
     if (quantity === 1) {
       dispatch(removeFromCart(id));
+      toast.success("Item removed from cart");
     } else {
       dispatch(updateQuantity({ id, quantity: quantity - 1 }));
     }

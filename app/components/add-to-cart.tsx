@@ -4,12 +4,14 @@ import { Button } from "@/components/ui/button";
 import { useDispatch } from "react-redux";
 import { CartItem } from "../lib/definitions";
 import { addToCart } from "@/lib/features/cart/cart-slice";
+import { toast } from "sonner";
 
 export default function AddToCart({ cartItem }: { cartItem: CartItem }) {
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
     dispatch(addToCart(cartItem));
+    toast.success("Item added to cart");
   };
 
   return (
